@@ -1,6 +1,6 @@
+using Barber.API.Filters;
 using Barber.Application;
 using Barber.Infraestructure;
-using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -8,10 +8,10 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
-
+builder.Services.AddMvc(options => options.Filters.Add(typeof(FaturamentoFilter)));
 
 builder.Services.AddInfraestructure(builder.Configuration);
-builder.Services.AddApplication(); 
+builder.Services.AddApplication();      
 
 var app = builder.Build();
 
