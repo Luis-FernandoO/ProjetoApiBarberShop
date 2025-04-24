@@ -4,5 +4,5 @@ namespace Barber.Application.UseCases.Faturamento.Update;
 
 public interface IUpdateFaturamentoUseCase
 {
-    Task<RequestFaturamentoJson> Execute(int id, RequestFaturamentoJson request);
+    Task Execute(int id, RequestFaturamentoJson request);
 }

@@ -19,11 +19,8 @@
     <ProjectReference Include="..\Barber.Application\Barber.Application.csproj" />
     <ProjectReference Include="..\Barber.Communication\Barber.Communication.csproj" />
     <ProjectReference Include="..\Barber.Domain\Barber.Domain.csproj" />
+    <ProjectReference Include="..\Barber.Exception\Barber.Exception.csproj" />
     <ProjectReference Include="..\Barber.Infraestructure\Barber.Infraestructure.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Filters\" />
   </ItemGroup>
 
 </Project>
