@@ -111,7 +111,7 @@ public class GenerateFaturamentoReportPdfUseCase : IGenerateFaturamentoReportPdf
 
         var directoryName = Path.GetDirectoryName(assembly.Location);
 
-        var pathFile = Path.Combine(directoryName!, "Images", "img_barbearia.png");
+        var pathFile = Path.Combine(directoryName!, "Images", "img_barber.png");
 
         row.Cells[0].AddImage(pathFile);
         row.Cells[1].AddParagraph("BARBEARIA DO LUIS");

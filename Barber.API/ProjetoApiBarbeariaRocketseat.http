@@ -1,0 +1,6 @@
+@ProjetoApiBarbeariaRocketseat_HostAddress = http://localhost:5260
+
+GET {{ProjetoApiBarbeariaRocketseat_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
