@@ -10,7 +10,7 @@ public static class ServicosExtensions
         {
             Servicos.Cabelo => "Corte",
             Servicos.Barba => "Barba",
-            Servicos.BarbaECabelo=> "Manicure",
+            Servicos.BarbaECabelo=> "Barba e Cabelo",
             _ => string.Empty
         };
     }

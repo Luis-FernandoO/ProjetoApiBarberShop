@@ -3,6 +3,8 @@ using Barber.Application.UseCases.Faturamento.Delete;
 using Barber.Application.UseCases.Faturamento.GetAll;
 using Barber.Application.UseCases.Faturamento.GetById;
 using Barber.Application.UseCases.Faturamento.Register;
+using Barber.Application.UseCases.Faturamento.Reports.Excel;
+using Barber.Application.UseCases.Faturamento.Reports.Pdf;
 using Barber.Application.UseCases.Faturamento.Update;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -30,7 +32,8 @@ public static class DependencyInjectionExtension
         services.AddScoped<IRegisterServiceUseCase, RegisterServiceUseCase>();
         services.AddScoped<IUpdateFaturamentoUseCase, UpdateFaturamentoUseCase>();
         services.AddScoped<IDeleteFaturamentoUseCase, DeleteFaturamentoUseCase>();
-
+        services.AddScoped<IGenerateFaturamentoReportExcelUseCase, GenerateFaturamentoReportExcelUseCase>();
+        services.AddScoped<IGenerateFaturamentoReportPdfUseCase, GenerateFaturamentoReportPdfUseCase>();
     }
 
 

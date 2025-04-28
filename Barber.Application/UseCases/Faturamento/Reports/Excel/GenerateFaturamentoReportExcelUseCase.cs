@@ -1,9 +1,7 @@
-﻿
-using Barber.Domain;
+﻿using Barber.Domain;
 using Barber.Domain.Extensions;
 using ClosedXML.Excel;
-using DocumentFormat.OpenXml.Packaging;
-using System.Runtime.CompilerServices;
+using DocumentFormat.OpenXml.Spreadsheet;
 
 namespace Barber.Application.UseCases.Faturamento.Reports.Excel;
 
@@ -26,7 +24,7 @@ public class GenerateFaturamentoReportExcelUseCase : IGenerateFaturamentoReportE
         using var workbook = new XLWorkbook();
         workbook.Author = "BARBEAIA DO LUÍS";
         workbook.Style.Font.FontSize = 12;
-        workbook.Style.Font.FontName = "Times New Roman";
+        workbook.Style.Font.FontName = "Arial";
         
         var worksheet = workbook.Worksheets.Add(month.ToString("Y"));
         InsiderHeader(worksheet);
@@ -38,7 +36,7 @@ public class GenerateFaturamentoReportExcelUseCase : IGenerateFaturamentoReportE
             worksheet.Cell($"B{line}").Value = item.Data;
             worksheet.Cell($"C{line}").Value = item.FormaPagamento.FormaDePagamentoToString();
             worksheet.Cell($"D{line}").Value = item.Valor;
-            worksheet.Cell($"D{line}").Style.NumberFormat.Format = $"-{CURRENCY_SYMBOL} #0, ##0.00";
+            worksheet.Cell($"D{line}").Style.NumberFormat.Format = $"{CURRENCY_SYMBOL} #, ##0.00";
             worksheet.Cell($"E{line}").Value = item.Descricao;
 
             line++;
@@ -62,6 +60,7 @@ public class GenerateFaturamentoReportExcelUseCase : IGenerateFaturamentoReportE
         worksheets.Cell("E1").Value = "Descrição";
 
         worksheets.Cells("A1:E1").Style.Font.Bold = true;
+        worksheets.Cells("A1:E1").Style.Font.FontColor = XLColor.FromHtml("#FFFFFF");
 
         worksheets.Cells("A1:E1").Style.Fill.BackgroundColor = XLColor.FromHtml("#205858");
 
@@ -69,6 +68,6 @@ public class GenerateFaturamentoReportExcelUseCase : IGenerateFaturamentoReportE
         worksheets.Cell("B1").Style.Alignment.SetHorizontal(XLAlignmentHorizontalValues.Center);
         worksheets.Cell("C1").Style.Alignment.SetHorizontal(XLAlignmentHorizontalValues.Center);
         worksheets.Cell("E1").Style.Alignment.SetHorizontal(XLAlignmentHorizontalValues.Center);
-        worksheets.Cell("D1").Style.Alignment.SetHorizontal(XLAlignmentHorizontalValues.Center);
+        worksheets.Cell("D1").Style.Alignment.SetHorizontal(XLAlignmentHorizontalValues.Right);
     }
 }
